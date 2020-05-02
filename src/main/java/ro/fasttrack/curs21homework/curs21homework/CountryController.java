@@ -44,12 +44,12 @@ public class CountryController {
         return service.getNeighbours(countryId);
     }
 
-    @RequestMapping(value = "continents/{continentName}/countries", params = "minPopulation")
+    @RequestMapping(value = "continents/{continentName}/countries", params = "minPopulation", method = RequestMethod.GET)
     List<Country> getCountriesInContinentWithMinimumPopulation(@PathVariable String continentName, @RequestParam("minPopulation") long minPopulation) {
         return service.getCountriesInContinentWithMinimumPopulation(continentName, minPopulation);
     }
 
-    @RequestMapping(value = "countries", params = {"includeNeighbour", "excludeNeighbour"})
+    @RequestMapping(value = "countries", params = {"includeNeighbour", "excludeNeighbour"}, method = RequestMethod.GET)
     List<Country> getCountriesWithNeighboursXButNotY(@RequestParam("includeNeighbour") String includeNeighbour, @RequestParam("excludeNeighbour") String excludeNeighbour) {
         return service.getCountriesWithNeighboursXButNotY(includeNeighbour, excludeNeighbour);
     }
